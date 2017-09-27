@@ -69,6 +69,25 @@
   </div>
 </div>
 
+<!-- second modal - fail - could be into a component -->
+<div class="container text-center">
+  <div class="modal fade" id="failModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h1 class="modal-title" id="myModalLabel">Congratulations!</h1>
+        </div>
+        <div class="modal-body">
+          <div>You have redeemed {{ prize.name }}</div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-warning" @click="closeOut">More Prizes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
@@ -98,22 +117,23 @@
               let uri = 'http://localhost:4000/prizes/detail/' + this.$route.params.id;
                 this.axios.get(uri).then((response) => {
                     this.prize = response.data;
-                    console.log(response.data)
                 });
             },
 
             redeemPrize() {
               $('#myModal').modal('hide');
               $('#secondModal').modal('show');
-              // let uri = 'http://localhost:4000/prizes/update/' + this.$route.params.id;
-              //   this.axios.post(uri, this.prize).then((response) => {
-              //     this.$router.push({name: 'DisplayPrize'});
-              //   });
+
+              var quantity = this.prize.quantity;
+              console.log( typeof quantity);
+
             },
             closeOut() {
-              $('#secondModal').modal('hide');
-              router.push('DisplayPrize')
+            $('secondModal').modal('hide');
+
+              
             }
+      
         },
     }
 
