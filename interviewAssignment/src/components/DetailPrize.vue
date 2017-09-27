@@ -62,7 +62,7 @@
           <div>You have redeemed {{ prize.name }}</div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-warning">More Prizes</button>
+          <button class="btn btn-warning" @click="closeOut">More Prizes</button>
         </div>
       </div>
     </div>
@@ -109,6 +109,10 @@
               //   this.axios.post(uri, this.prize).then((response) => {
               //     this.$router.push({name: 'DisplayPrize'});
               //   });
+            },
+            closeOut() {
+              $('#secondModal').modal('hide');
+              router.push('DisplayPrize')
             }
         },
     }

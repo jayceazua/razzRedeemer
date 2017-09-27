@@ -1,6 +1,10 @@
 <template>
   <div>
     <h1>Create a Prize</h1>
+       <div class="row">
+              <div class="col-md-10"></div>
+              <div class="col-md-2"><router-link :to="{ name: 'DisplayPrize' }" class="btn btn-success" style="margin-bottom: 10px;">Return to Prizes</router-link></div>
+            </div>
     <form v-on:submit.prevent="addPrize">
       <div class="row">
         <div class="col-md-6">
@@ -22,7 +26,7 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <label>Prize Image:</label>
+            <label>Prize Image URL:</label>
             <input type="text" class="form-control col-md-6" v-model="prize.image_url" />
           </div>
         </div>

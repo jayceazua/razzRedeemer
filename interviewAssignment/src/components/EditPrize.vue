@@ -7,30 +7,45 @@
         </div>
 
         <form v-on:submit.prevent="updatePrize">
-            <div class="form-group">
-                <label>Prize Name</label>
-                <input type="text" class="form-control" v-model="prize.name">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Prize Name:</label>
+                        <input type="text" class="form-control" v-model="prize.name">
+                    </div>
+                </div>
             </div>
-
-            <div class="form-group">
-                <label>Prize Description</label>
-                <input type="text" class="form-control" v-model="prize.description">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Prize Description:</label>
+                        <textarea name="" class="form-control" id="" v-model="prize.description" cols="30" rows="10"></textarea>
+                    </div>
+                </div>
+            </div>    
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Prize Image URL:</label>
+                        <input type="text" class="form-control" v-model="prize.image_url">
+                    </div>
+                </div>
+            </div>    
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Prize Quantity:</label>
+                        <input type="number" class="form-control" min="1" v-model="prize.quantity">
+                    </div>
+                </div>
             </div>
-
-            <div class="form-group">
-                <label>Prize Image</label>
-                <input type="text" class="form-control" v-model="prize.image_url">
-            </div>
-
-            <div class="form-group">
-                <label>Prize Quantity</label>
-                <input type="number" class="form-control" min="1" v-model="prize.quantity">
-            </div>
-
+            <br/>
             <div class="form-group">
                 <button class="btn btn-primary">Update</button>
             </div>
         </form>
+
+
     </div>
 </template>
 
