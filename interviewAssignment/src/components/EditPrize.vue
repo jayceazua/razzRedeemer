@@ -74,6 +74,7 @@
               let uri = 'http://localhost:4000/prizes/update/' + this.$route.params.id;
                 this.axios.post(uri, this.prize).then((response) => {
                   this.$router.push({name: 'DisplayPrize'});
+                  console.log(response)
                 });
             }
         }

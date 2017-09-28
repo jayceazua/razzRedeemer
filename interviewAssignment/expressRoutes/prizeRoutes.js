@@ -51,10 +51,16 @@ prizeRoutes.route('/redeem/:id').post(function(req, res) {
         if (!prize)
             return next(new Error('Could not redeem prize!'));
         else {
+            prize.quantity = req.body.quantity; 
+            // console.log(req.body.quantity);
+            
+            prize.save().then(prize => {
+                    res.json('Update complete');
+                })
+                .catch(err => {
+                    res.status(400).send("unable to update the database");
+                });
 
-            console.log(prize.quantity);
-            
-            
            
         }
     });

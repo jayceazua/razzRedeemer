@@ -76,13 +76,13 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h1 class="modal-title" id="myModalLabel">Congratulations!</h1>
+          <h1 class="modal-title" id="myModalLabel">Sorry but you cannot redeem this!</h1>
         </div>
         <div class="modal-body">
-          <div>You have redeemed {{ prize.name }}</div>
+          <p>Try to redeem another prize sorry for the inconvenience</p>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-warning" @click="closeOut">More Prizes</button>
+          <button class="btn btn-warning" @click="closeOut">View More Prizes</button>
         </div>
       </div>
     </div>
@@ -122,19 +122,29 @@
 
             redeemPrize() {
               $('#myModal').modal('hide');
-              $('#secondModal').modal('show');
 
-              var quantity = this.prize.quantity;
-              console.log( typeof quantity);
+              var currentQuantity = this.prize.quantity;
+              console.log(currentQuantity);
 
+              if (currentQuantity > 0) {
+                $('#secondModal').modal('show');
+                var newQuantity = currentQuantity - 1;
+                this.prize.quantity = newQuantity;
+                // console.log(this.prize.quantity);
+                let uri = 'http://localhost:4000/prizes/redeem/' + this.$route.params.id;
+                this.axios.post(uri, this.prize).then((response) => {
+                  this.$router.push({name: 'DetailPrize'});
+                });
+              } else if(currentQuantity === 0){
+                $('#failModal').modal('show');
+              }
             },
             closeOut() {
-            $('secondModal').modal('hide');
-
-              
+            $('#secondModal').modal('hide');
+            $('#failModal').modal('hide');
+            this.$route.router.go({name: 'DisplayPrize'});
             }
-      
-        },
+        }
     }
 
 
