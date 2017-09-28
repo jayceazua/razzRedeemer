@@ -61,7 +61,7 @@
     },
     methods: {
       addPrize(){
-        let uri = 'http://localhost:4000/prizes/add';
+        let uri = 'https://damp-forest-70063.herokuapp.com/prizes/add';
         this.axios.post(uri, this.prize).then((response) => {
           this.$router.push({name: 'DisplayPrize'})
         })
