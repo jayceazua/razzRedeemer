@@ -1,4 +1,4 @@
-var { DefinePlugin } = require('webpack');
+var webpack = require('webpack')
 
 module.exports = {
   // This is the "main" file which should include all other modules
@@ -39,14 +39,15 @@ module.exports = {
   ]
 },
   plugins: [
-    new DefinePlugin({
-      "process.env": {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV || 4000),
-        TARGET_PLATFORM: JSON.stringify('dom')
-      }
-    })
+  new webpack.DefinePlugin({
+    'process.env' : {
+      NODE_ENV: JSON.stringify('production')
+    }
+  })
   ]
-
+/*
+   DeprecationWarning: Mongoose: mpromise (mongoose's default promise library) is deprecated, plug in your own promise library instead: http://mongoosejs.com/docs/promises.html
+*/
 
 // devServer: {
        // port: 3000
