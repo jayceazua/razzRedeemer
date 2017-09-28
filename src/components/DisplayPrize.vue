@@ -48,7 +48,7 @@ export default {
 
     methods: {
         fetchPrizes() {
-            let uri = 'https://damp-forest-70063.herokuapp.com/prizes';
+            let uri = 'http://localhost:4000/prizes';
             this.axios.get(uri).then((response) => {
                 this.prizes = response.data;
             });
