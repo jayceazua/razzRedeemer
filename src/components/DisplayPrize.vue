@@ -22,8 +22,9 @@
                              <router-link :to="{name: 'DetailPrize', params: { id: prize._id }}" class="btn btn-warning col-lg-3" style="float: left; margin-right: 10px">Redeem</router-link>
 
                              <router-link :to="{name: 'EditPrize', params: { id: prize._id }}" class="btn btn-primary col-lg-3" style="float: left; margin-right: 10px">Edit</router-link>
-                            <button class="btn btn-danger col-lg-3" style="float: left" v-on:click="deletePrize(prize._id)">Delete</button>
-                           
+
+                            <!-- <button class="btn btn-danger col-lg-3" style="float: left" v-on:click="deletePrize(prize._id)">Delete</button>
+ -->                           
                                
                             </div>
                         </div>
@@ -33,7 +34,7 @@
     </div>
 </template>
 <script>
-   
+
 export default {
     data() {
         return {
@@ -51,12 +52,12 @@ export default {
             this.axios.get(uri).then((response) => {
                 this.prizes = response.data;
             });
-        },
-        deletePrize(id) {
-            let uri = 'http://localhost:4000/prizes/delete/' + id;
-            this.prizes.splice(id, 1);
-            this.axios.get(uri);
         }
+        // deletePrize(id) {
+        //     let uri = 'http://localhost:4000/prizes/delete/' + id;
+        //     this.prizes.splice(id, 1);
+        //     this.axios.get(uri);
+        // }
     }
 }
 </script>
