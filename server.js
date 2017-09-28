@@ -16,8 +16,9 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(cors());
 app.use('/prizes', prizeRoutes);
-const port = process.env.PORT || 4000;
+// const port = process.env.PORT || 4000;
 
-const server = app.listen(port, function() {
-    console.log('Listening on port ' + port);
-});
+
+
+
+const server = app.listen(process.env.PORT || 5000);
