@@ -1,3 +1,5 @@
+var { DefinePlugin } = require('webpack');
+
 module.exports = {
   // This is the "main" file which should include all other modules
   entry: './src/main.js',
@@ -5,10 +7,12 @@ module.exports = {
   output: {
     filename: 'bundle.js'
   },
+
   resolve: {
   alias: {
     vue: 'vue/dist/vue.js'
   }
+
 },
   module: {
     // Special compilation rules
@@ -33,7 +37,17 @@ module.exports = {
     }
   ]
 },
-devServer: {
-       port: 3000
-   }
-}
+  plugins: [
+    new DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV || 4000),
+        TARGET_PLATFORM: JSON.stringify('dom')
+      }
+    })
+  ]
+
+
+// devServer: {
+       // port: 3000
+   // }
+};
