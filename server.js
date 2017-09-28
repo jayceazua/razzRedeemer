@@ -21,4 +21,4 @@ app.use('/prizes', prizeRoutes);
 
 
 
-const server = app.listen(process.env.PORT || 5000);
+const server = app.listen(process.env.PORT || 4000);
