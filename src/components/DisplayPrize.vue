@@ -46,13 +46,13 @@ export default {
 
     methods: {
         fetchPrizes() {
-            let uri = '/prizes';
+            let uri = 'http://localhost:4000/prizes';
             this.axios.get(uri).then((response) => {
                 this.prizes = response.data;
             });
         },
         deletePrize(id) {
-            let uri = '/prizes/delete/' + id;
+            let uri = 'http://localhost:4000/prizes/delete/' + id;
             this.prizes.splice(id, 1);
             this.axios.get(uri);
         }
