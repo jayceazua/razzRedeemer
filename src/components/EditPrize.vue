@@ -64,14 +64,14 @@
 
         methods: {
             getPrize() {
-              let uri = 'http://localhost:4000/prizes/edit/' + this.$route.params.id;
+              let uri = '/prizes/edit/' + this.$route.params.id;
                 this.axios.get(uri).then((response) => {
                     this.prize = response.data;
                 });
             },
 
             updatePrize() {
-              let uri = 'http://localhost:4000/prizes/update/' + this.$route.params.id;
+              let uri = '/prizes/update/' + this.$route.params.id;
                 this.axios.post(uri, this.prize).then((response) => {
                   this.$router.push({name: 'DisplayPrize'});
                   console.log(response)

@@ -61,7 +61,7 @@
     },
     methods: {
       addPrize(){
-        let uri = 'http://localhost:4000/prizes/add';
+        let uri = '/prizes/add';
         this.axios.post(uri, this.prize).then((response) => {
           this.$router.push({name: 'DisplayPrize'})
         })

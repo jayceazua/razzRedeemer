@@ -114,7 +114,7 @@
 
         methods: {
             getPrize() {
-              let uri = 'http://localhost:4000/prizes/detail/' + this.$route.params.id;
+              let uri = '/prizes/detail/' + this.$route.params.id;
                 this.axios.get(uri).then((response) => {
                     this.prize = response.data;
                 });
@@ -131,7 +131,7 @@
                 var newQuantity = currentQuantity - 1;
                 this.prize.quantity = newQuantity;
                 // console.log(this.prize.quantity);
-                let uri = 'http://localhost:4000/prizes/redeem/' + this.$route.params.id;
+                let uri = '/prizes/redeem/' + this.$route.params.id;
                 this.axios.post(uri, this.prize).then((response) => {
                   this.$router.push({name: 'DetailPrize'});
                 });
