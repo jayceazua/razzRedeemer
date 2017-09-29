@@ -2,9 +2,9 @@
   "name": "razzProject",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "web"
   },
   "author": "",
   "license": "ISC",
